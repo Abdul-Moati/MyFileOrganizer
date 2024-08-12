@@ -46,9 +46,17 @@ file_types_label = fsg.Text("Check the types (extensions) of the files you want 
 
 empty_label = fsg.Text("", background_color=background_color)
 
+desired_extension_label = fsg.Text("In case your desired extensions are not among the checkboxes,\n"
+                                   "please write them in the whitespace below.\n\n"
+                                   "You can write multiple file extensions separated by a blank space.\n"
+                                   "Example: .psd .SLDPRT .reg .hex .mlx .torrent", background_color='grey')
+
 
 # Input Boxes
 directory_input_box = fsg.InputText(size=(86, 3), tooltip="Directory")
+
+desired_extension_input_box = fsg.InputText(size=(55, 3), tooltip="Directory")
+
 
 # Check Boxes
 video_check_box = fsg.Checkbox(['Video (.mp4)'], default=False, key='-VIDEO-', background_color='grey')
@@ -79,10 +87,6 @@ clmn = fsg.Column(
 
 
 
-
-
-
-
 layout = [
     [welcome_label],
     [explanation_label],
@@ -94,6 +98,8 @@ layout = [
     [text_check_box,pdf_check_box,archive_check_box],
     [video_check_box, image_check_box, audio_check_box],
     [word_check_box,powerpoint_check_box,Excel_check_box],
+    [desired_extension_label],
+    [desired_extension_input_box],
     [clmn]
     ]
 
