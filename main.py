@@ -12,7 +12,9 @@ import FreeSimpleGUI as fsg
 import shutil
 import os
 
+
 # Aesthetics
+#fsg.theme("BrightColors")
 background_color = '#FFD580'
 vivid_orange = '#E67E22'
 
@@ -52,11 +54,17 @@ desired_extension_label = fsg.Text("In case your desired extensions are not amon
                                    "You can write multiple file extensions separated by a blank space.\n"
                                    "Example: .psd .SLDPRT .reg .hex .mlx .torrent", background_color='grey')
 
+#name_label = fsg.Text("Made by Abdul Moati Diab", justification='center', size=(30, 1), background_color=vivid_orange)
+
+name_label = fsg.Text("Made by Abdul Moati Diab",
+                           font=('Calibri', 15), background_color=vivid_orange,
+                           justification='center', size=(30, 1))
 
 # Input Boxes
 directory_input_box = fsg.InputText(size=(86, 3), tooltip="Directory", key="DIRECTORY")
 
 desired_extensions_input_box = fsg.InputText(size=(55, 3), tooltip="Extensions", key="EXTENSIONS")
+
 
 
 # Check Boxes
@@ -80,17 +88,26 @@ confirmation_button = fsg.Button("Organize My Folder!", button_color=('black', '
 
 
 # Columns
-clmn = fsg.Column(
+clmn1 = fsg.Column(
     [
     [confirmation_button]
     ]
     ,justification='right', background_color=background_color)
+
+clmn2 = fsg.Column(
+    [
+    [name_label]
+    ]
+    ,justification='center', background_color=background_color)
+
+
 
 
 # GUI Layout
 layout = [
     [welcome_label],
     [explanation_label],
+    [clmn2],
     [directory_label],
     [directory_input_box],
     [directory_example_label],
@@ -101,7 +118,7 @@ layout = [
     [word_check_box,powerpoint_check_box,Excel_check_box],
     [desired_extension_label],
     [desired_extensions_input_box],
-    [clmn]
+    [clmn1]
     ]
 
 
