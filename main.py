@@ -165,6 +165,10 @@ while True:
 
     # After moving all files, check and delete empty folders
     for folder, subfolders, files in os.walk(directory, topdown=False):  # Traverse in bottom-up order
+
+        # Clear the subfolders list to prevent walking into subdirectories
+        subfolders.clear()
+
         if not os.listdir(folder):  # Check if the directory is empty
             os.rmdir(folder)  # Remove the empty directory
             print(f"Deleted empty directory: {folder}")
