@@ -53,28 +53,28 @@ desired_extension_label = fsg.Text("In case your desired extensions are not amon
 
 
 # Input Boxes
-directory_input_box = fsg.InputText(size=(86, 3), tooltip="Directory")
+directory_input_box = fsg.InputText(size=(86, 3), tooltip="Directory", key="DIRECTORY")
 
-desired_extension_input_box = fsg.InputText(size=(55, 3), tooltip="Directory")
+desired_extensions_input_box = fsg.InputText(size=(55, 3), tooltip="Extensions", key="EXTENSIONS")
 
 
 # Check Boxes
-video_check_box = fsg.Checkbox(['Video (.mp4)'], default=False, key='-VIDEO-', background_color='grey')
-image_check_box = fsg.Checkbox(['Image (.png/.jpg/.jpeg)'], default=False, key='-IMAGE-', background_color='grey')
-audio_check_box = fsg.Checkbox(['Audio (.mp3'], default=False, key='-AUDIO-', background_color='grey')
+video_check_box = fsg.Checkbox(['Video (.mp4)'], default=False, key='.mp4', background_color='grey')
+image_check_box = fsg.Checkbox(['Image (.png/.jpg/.jpeg)'], default=False, key='.png .jpg. jpeg', background_color='grey')
+audio_check_box = fsg.Checkbox(['Audio (.mp3'], default=False, key='.mp3', background_color='grey')
 
-pdf_check_box = fsg.Checkbox(['PDF (.pdf)'], default=False, key='-PDF-', background_color='grey')
-text_check_box = fsg.Checkbox(['Text (.txt)'], default=False, key='-TEXT-', background_color='grey')
-archive_check_box = fsg.Checkbox(['Archive (.zip/.rar)'], default=False, key='-ZIP/RAR-', background_color='grey')
+pdf_check_box = fsg.Checkbox(['PDF (.pdf)'], default=False, key='.pdf', background_color='grey')
+text_check_box = fsg.Checkbox(['Text (.txt)'], default=False, key='.txt', background_color='grey')
+archive_check_box = fsg.Checkbox(['Archive (.zip/.rar)'], default=False, key='.zip .rar', background_color='grey')
 
-word_check_box = fsg.Checkbox(['Word (.doc/.docx)'], default=False, key='-DOC-', background_color='grey')
-powerpoint_check_box = fsg.Checkbox(['Powerpoint (.ppt/.pptx)'], default=False, key='-PPT-', background_color='grey')
-Excel_check_box = fsg.Checkbox(['Excel (.xls/.xlsx)'], default=False, key='-XLS-', background_color='grey')
+word_check_box = fsg.Checkbox(['Word (.doc/.docx)'], default=False, key='.doc', background_color='grey')
+powerpoint_check_box = fsg.Checkbox(['Powerpoint (.ppt/.pptx)'], default=False, key='.ppt', background_color='grey')
+Excel_check_box = fsg.Checkbox(['Excel (.xls/.xlsx)'], default=False, key='.xls', background_color='grey')
 
 
 
 # Buttons
-confirmation_button = fsg.Button("Organize Folder!", button_color=('black', 'green'), size=(15, 2))
+confirmation_button = fsg.Button("Organize My Folder!", button_color=('black', 'green'), size=(20, 2))
 
 
 
@@ -99,7 +99,7 @@ layout = [
     [video_check_box, image_check_box, audio_check_box],
     [word_check_box,powerpoint_check_box,Excel_check_box],
     [desired_extension_label],
-    [desired_extension_input_box],
+    [desired_extensions_input_box],
     [clmn]
     ]
 
@@ -107,6 +107,25 @@ layout = [
 # Main Window
 window = fsg.Window('My Folder Organizer', layout, background_color='#FFD580')
 
-fsg.Listbox
-window.read()
+true_check_boxes = []
+
+while True:
+    event, values = window.read()
+    print(event)
+    print(values)
+    print(values["DIRECTORY"])
+    print(values["EXTENSIONS"])
+
+    for key, value in values.items():
+        if value:
+            true_check_boxes.append(key)
+
+    print(true_check_boxes)
+
+
+
+
+    if event == fsg.WINDOW_CLOSED:
+            break
+
 window.close()
