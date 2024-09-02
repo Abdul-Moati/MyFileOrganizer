@@ -16,14 +16,14 @@ One day, I decided to open my Downloads folder after years of neglect, and what 
 
 ## How to Use
 
-1. **Download and run the `.exe` file**.
-2. **Enter the directory** of the folder you want to organize.
+1. **Download the `.exe` file** from the `dist` folder in this repository.
+2. **Run the application** and enter the directory of the folder you want to organize.
 3. **Select the types (extensions) of files** you want to group together.
 4. **Click on "Organize My Folder!"** and let the app do its magic!
 
 ## Getting Started
 
-You can download the `.exe` file from the [Releases](#) section on GitHub.
+You can download the `.exe` file directly from the [`dist`](dist/) folder in this repository.
 
 ## Contributing
 
