@@ -33,6 +33,3 @@ Feel free to fork this repository, submit issues, or create pull requests. Any s
 
 This project was a gateway for me to start working on GUIs and making standalone applications. I hope you find it as useful as I intended it to be!
 
-## License
-
-This project is licensed under the MIT License.
